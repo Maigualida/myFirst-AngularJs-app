@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--<link href="css/style.css" rel="stylesheet">-->
+	<style>
+		.red {
+			color: red
+		}
+	</style>
+</head>
+
+<body>
+
+	<div ng-app="myApp">
+		<div ng-class="{red:names.length<=3}" ng-controller="PhoneListController">
+			{{name}}
+			<ul>
+				<li ng-repeat="i in users">{{i.name.first}} {{i.name.last}}</li>
+			</ul>
+
+			<ul>
+				<li ng-repeat="item in names">{{item}}
+					<a ng-click="supprimer(item)">X</a>
+				</li>
+			</ul>
+			<input ng-model="newName" type="text" ng-blur="verify()"><button ng-click="add()">send</button>
+			<p ng-if="names.length>=5">Too many names</p>
+		</div>
+
+		<div ng-controller="AnotherController">
+			{{Hello}}
+		</div>
+
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="main.controller.js"></script>
+	<script src="another.controller.js"></script>
+</body>
+
+</html>
